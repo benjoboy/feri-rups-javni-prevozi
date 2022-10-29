@@ -1,0 +1,27 @@
+{
+  "name": "javni-prevozi-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Benjamin Serec",
+  "license": "MIT",
+  "scripts": {
+    "dev": "set DB_PASS=example && set NODE_ENV=development && nodemon --exec ts-node --files src/index.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.10"
+  }
+}
