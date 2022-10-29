@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:alpine
 
 WORKDIR /root/app
 COPY package.json .
@@ -7,5 +7,5 @@ RUN yarn
 COPY . .
 
 RUN yarn build
-EXPOSE 3001
+EXPOSE 3002
 CMD ["yarn", "start"]

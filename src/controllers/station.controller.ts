@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import https from "https"
 import { Stations } from "../interfaces/station.interface"
 import { getDistanceFromLatLonInKm, getRequest } from "../utils/helpers"
 
