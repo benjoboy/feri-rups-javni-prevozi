@@ -18,11 +18,15 @@ export const AppDataSource = new DataSource({
 			: process.env.DB_PASS,
 	database:
 		process.env.NODE_ENV?.trim() === "development"
-			? "rups"
+			? "postgres"
 			: process.env.DB_NAME,
+	schema:
+		process.env.NODE_ENV?.trim() === "development"
+			? "rups"
+			: process.env.SCHEMA_NAME,
 	synchronize: true,
 	logging: true,
-	entities: ["src/entity/**/*.ts"],
+	entities: ["src/entities/**/*.ts"],
 	migrations: [],
 	subscribers: [],
 	poolErrorHandler: console.log,
