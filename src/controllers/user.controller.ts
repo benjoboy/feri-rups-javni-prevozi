@@ -12,7 +12,7 @@ const register = async (req: Request, res: Response) => {
 	try {
 		const hashedPass = bcrypt.hashSync(password, 12)
 
-		const user = await AppDataSource.getRepository(User).save({
+		await AppDataSource.getRepository(User).save({
 			email,
 			password: hashedPass,
 			firstName,
@@ -27,7 +27,6 @@ const register = async (req: Request, res: Response) => {
 }
 
 const login = async (req: Request, res: Response) => {
-	console.log(req.body)
 	const { email, password } = req.body
 	if (!email || !password) {
 		return res.status(400).json({ message: "Missing email or password" })
