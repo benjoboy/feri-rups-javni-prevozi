@@ -19,7 +19,6 @@ const register = async (req: Request, res: Response) => {
 			lastName,
 			delta: Math.floor(100000 + Math.random() * 900000),
 		})
-		console.log("user", user)
 		return res.status(200).json({ message: "User created successfully" })
 	} catch (err) {
 		console.log(err)
@@ -45,8 +44,7 @@ const login = async (req: Request, res: Response) => {
 	if (!validPass) {
 		return res.status(401).json({ message: "Invalid password" })
 	} else {
-		const [token, refreshToken] = await createTokens(user)
-		//set cookies
+		const [token, refreshToken] = await createTokens({ user })
 		res.cookie("x-connector-token", token).cookie(
 			"x-connector-refresh-token",
 			refreshToken

@@ -50,11 +50,13 @@ const signToken = async (
 	)
 
 export const createTokens = async (data: any, additionalClaims = {}) => {
-	const { user = {}, refreshTokenSecret = process.env.SECRET_REFRESH_TOKEN } =
-		data
+	const {
+		user = {},
+		refreshTokenSecret = process.env.SECRET_REFRESH_TOKEN || "secret",
+	} = data
 	const createToken = await signToken(
 		user,
-		process.env.SECRET_TOKEN as string,
+		(process.env.SECRET_TOKEN as string) || "secret",
 		1800,
 		additionalClaims
 	)
