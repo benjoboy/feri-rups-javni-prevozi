@@ -20,6 +20,7 @@ services:
       DB_HOST: db
       DB_USER: postgres
       DB_NAME: postgres
+      SCHEMA_NAME: postgres
 volumes:
   db_data:
     

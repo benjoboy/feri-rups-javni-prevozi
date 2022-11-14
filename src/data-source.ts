@@ -26,7 +26,7 @@ export const AppDataSource = new DataSource({
 			: process.env.SCHEMA_NAME,
 	synchronize: true,
 	logging: true,
-	entities: ["src/entities/**/*.ts"],
+	entities: ["./dist/entities/**/*.ts"],
 	migrations: [],
 	subscribers: [],
 	poolErrorHandler: console.log,

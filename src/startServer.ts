@@ -5,7 +5,8 @@ import { routesRouter } from "./routes/routes"
 import { AppDataSource } from "./data-source"
 
 export const startServer = async () => {
-	AppDataSource.initialize()
+	await AppDataSource.initialize()
+
 	const app = express()
 	app.use(cors())
 	app.use(express.json())
