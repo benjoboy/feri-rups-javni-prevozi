@@ -8,6 +8,8 @@ services:
       POSTGRES_PASSWORD: example
     volumes:
       - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   api: 
     build: .
     restart: always
@@ -20,7 +22,7 @@ services:
       DB_HOST: db
       DB_USER: postgres
       DB_NAME: postgres
-      SCHEMA_NAME: postgres
+      SCHEMA_NAME: public
 volumes:
   db_data:
     

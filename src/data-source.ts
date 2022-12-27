@@ -22,14 +22,14 @@ export const AppDataSource = new DataSource({
 			: process.env.DB_NAME,
 	schema:
 		process.env.NODE_ENV?.trim() === "development"
-			? "rups"
+			? "public"
 			: process.env.SCHEMA_NAME,
 	synchronize: true,
 	logging: true,
 	entities: [
 		process.env.NODE_ENV?.trim() === "development"
 			? "./src/entities/**/*.ts"
-			: "./dist/entities/**/*.ts",
+			: "./dist/entities/**/*.js",
 	],
 	migrations: [],
 	subscribers: [],
